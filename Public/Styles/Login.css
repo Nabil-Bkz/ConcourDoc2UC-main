@@ -1,0 +1,138 @@
+/* start variables */
+:root {
+  --main-color: #10cab7;
+  --secondary-color: #e5e5e5;
+  --main-font-color: #333;
+  --main-backround-color: #fff;
+}
+
+/* end variables */
+/* start components */
+button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  color: var(--main-font-color);
+  font-size: 1.1rem;
+  border-color: #f1f1f1;
+  height: 41px;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+button i {
+  margin-right: 10px;
+}
+button:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+/* end components */
+/* start global Rules */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  margin: 0;
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+}
+
+/* end global Rules */
+
+/* start logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 50px;
+  padding-top: 25px;
+}
+.logo i {
+  color: var(--main-color);
+  text-align: center;
+}
+.logo h2 {
+  color: #333;
+  letter-spacing: -2px;
+}
+.logo h2 span {
+  color: var(--main-color);
+}
+/* end logo */
+.login-form {
+  position: absolute;
+  background-color: #fff;
+  height: 470px;
+  width: 500px;
+  top: 150px;
+  left: calc((100% - 500px) / 2);
+  transition: 5s;
+  padding: 50px;
+  padding-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 48px 100px 0px rgb(17 12 46 / 15%);
+}
+/* Mobile  small*/
+@media (max-width: 767px) {
+  .login-form {
+    top: 107px;
+    height: 120vh;
+    width: 100%;
+    display: block;
+    border-color: #fff;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  body {
+    background-color: #fff;
+  }
+}
+.login-form h2 {
+  color: var(--main-font-color);
+  letter-spacing: -2px;
+  white-space: nowrap;
+  margin: 15px 10px 10px 10px;
+  text-align: center;
+}
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  height: 100%;
+}
+.login-form form input,
+select {
+  border-radius: 10px;
+  height: 41px;
+  cursor: text;
+  border: solid #f1f1f1 2px;
+  border-color: var(--main-color);
+  margin-bottom: 30px;
+  padding-left: 11px;
+}
+.login-form form .input {
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+}
+.login-form form label {
+  margin-bottom: 3px;
+}
+.login-form form input[type="submit"] {
+  background-color: #10cab7;
+}
+.login-form form input[type="submit"]:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+:focus::-webkit-input-placeholder {
+  color: transparent;
+}

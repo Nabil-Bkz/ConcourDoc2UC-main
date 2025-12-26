@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="Styles/Teacher.css" class="rel" />
+
+    <!-- Render All Elements Normaly -->
+    <link rel="stylesheet" href="Styles/normalize.css" class="rel" />
+    <!-- Font Awesome Library -->
+    <script
+      src="https://kit.fontawesome.com/d563012c9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Googl Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- start header -->
+    <div class="header">
+      <div class="menu">
+        <i class="fas fa-solid fa-bars fa-2x"></i>
+      </div>
+      <div class="logo">
+        <i class="fas fa-graduation-cap fa-3x"></i>
+        <h2>ConcourDoc<span>2</span>UC2</h2>
+      </div>
+      <div class="profile">
+        <div class="info">
+          <!-- put  name of user (admin) here "backend" -->
+          <p class="first">#(teacher.firstName) #(teacher.lastName)</p>
+          <p class="second">Teacher</p>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+    <div class="main">
+      <!-- start aside bar -->
+      <div class="aside">
+        <ul class="sidebar-items">
+          <li>
+            <div class="profile profile2">
+              <div class="image">
+                <i class="fas fa-user fa-2x"></i>
+              </div>
+              <div class="info">
+                <p class="first">admin name</p>
+                <p class="second">Admin</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="administrator-link active-link">
+              <i class="fas fa-user"></i>
+              <span class="">Copies</span>
+            </a>
+          </li>
+       
+        </ul>
+        <ul class="sidebar-bottom-itmes">
+          <li>
+            <!-- log out  "backend"-->
+            <a href="/logout" class="">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- end aside bar  -->
+      <!-- start main content -->
+      <div class="main-content">
+        <div class="list_users"> 
+          <div class="title">
+            <h2>List of <span class="list-title">Assigned Copies</span></h2>
+            <button onclick="envoyerNotes()">Envoyer les notes</button>
+
+          </div>
+          <hr />
+          <!-- start table admin -->
+          <div class="table table-admin table-active">
+            <table>
+                <tr>
+                  <th>Secret Code</th>
+                  <th>Module</th>
+                  <th>Mark</th>
+                </tr>
+                #for(copy in copies):
+                    <tr>
+                      <td hidden>#(copy.id)</td>
+                      <td>#(copy.secretCode)</td>
+                      <td>#(copy.module)</td>
+                      <td><input type="number" min="0" max="20" step="0.5"></td>
+                    </tr>
+                #endfor
+                <!-- Ajoutez d'autres lignes pour plus de copies -->
+            
+              </table>
+            
+          </div>
+          <!-- end table admin -->
+       
+    
+        </div>
+    </div>
+    <!-- import js -->
+    <script src="Scripts/Teacher.js"></script>
+  </body>
+</html>

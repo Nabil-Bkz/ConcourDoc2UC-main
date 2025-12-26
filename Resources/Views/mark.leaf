@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="../../Styles/CFD_President.css" class="rel" />
+   
+
+    <!-- Render All Elements Normaly -->
+    <link rel="stylesheet" href="../../Styles/normalize.css" class="rel" />
+    <!-- Font Awesome Library -->
+    <script
+      src="https://kit.fontawesome.com/d563012c9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Googl Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- start header -->
+    <div class="header">
+      <div class="menu">
+        <i class="fas fa-solid fa-bars fa-2x"></i>
+      </div>
+      <div class="logo">
+        <i class="fas fa-graduation-cap fa-3x"></i>
+        <h2>ConcourDoc<span>2</span>UC2</h2>
+      </div>
+      <div class="profile">
+        <div class="info">
+          <p class="first">#(user.firstName) #(user.lastName)</p>
+
+          <p class="second">CFD President</p>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+    <div class="main">
+      <!-- start aside bar -->
+      <div class="aside">
+        <ul class="sidebar-items">
+          <li>
+            <div class="profile profile2">
+              <div class="image">
+                <i class="fas fa-user fa-2x"></i>
+              </div>
+              <div class="info">
+                <!-- name "back end " -->
+                <p class="first">admin name</p>
+
+                <p class="second">Admin</p>
+              </div>
+            </div>
+          </li>
+          <!-- link go to marks api "backend" -->
+          <li>
+            <a href="/cfd-president/copies/marked" class="mark-link active-link ">
+              <i class="fas fa-clipboard-list"></i>
+              <span class="">Marks</span>
+            </a>
+          </li>
+         
+
+          <hr />
+          <!-- link go to affecte teacher api "backend" -->
+          <li>
+            <a href="/cfd-president/copies/unmarked" class="affect-teachers-link ">
+              <i class="fas fa-copy"></i>
+              <span class="">Affect Teachers</span>
+            </a>
+          </li>
+          <!-- link go to affecte third_teacher "backend"-->
+          <li>
+            <a href="/cfd-president/copies/third-teacher" class="third-teachers-link ">
+              <i class="fas fa-copy"></i>
+              <span class="">Third Teachers</span>
+            </a>
+          </li>
+       
+          <li>
+            <a href="#" class="publish-link ">
+              <i class="fas fa-bullhorn"></i>
+              <span class="">Publish Marks</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="sidebar-bottom-itmes">
+          <li>
+            <!-- log out "back end " -->
+            <a href="/logout" class="">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- end aside bar  -->
+      <!-- start main content -->
+      <div class="main-content">
+        <div class="list_users">
+          <div class="title">
+            <h2><span class="list-title">Marks</span></h2>
+          </div>
+          <hr />
+          <!-- start table marks -->
+          <div class="table table-admin table-active">
+            <table id="table-final">
+              <thead>
+                <tr
+                  style="background-color: #fff; position: sticky; top: 000px"
+                >
+                  <th hidden>UUID</th>
+                  <th>Candidate</th>
+                  <th>Module</th>
+                  <th>Mark 1</th>
+                  <th>Mark 2</th>
+                  <th>Mark 3</th>
+                  <th>Final Mark</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- start loop (to display Marks) "backend"-->
+                #for(copy in copies):
+                    <tr>
+                     <td hidden>#(copy.id)</td>
+                      <td>#(copy.fullName)</td>
+                      <td>#(copy.module)</td>
+                      <td>#(copy.mark1)</td>
+                      <td>#(copy.mark2)</td>
+                      #if(copy.mark3):
+                          <td>#(copy.mark3)</td>
+                      #else:
+                          <td style="color: #D3D3D3;">N/A</td>
+                      #endif
+                      <td>#(copy.finalMark)</td>
+                    </tr>
+                #endfor
+                <!-- end loop (to display Marks) "backend"-->
+              </tbody>
+            </table>
+          </div>
+          <!-- end table marks -->
+          
+      </div>
+      <!-- show-Marks form -->
+      <div class="show-Marks">
+        <!-- add api dsplay mark  "back end" -->
+        <form action="/cfd-president/copies/marked/new" method="post">
+          <div class="closer">&times;</div>
+          <div class="title-show">
+            <h3 style="margin-bottom: 0;
+            margin-top: 42px;">Do you want to publish Marks ?</h3>
+            <h5 style="color: rgb(219, 135, 135);margin: 20px 40px;">Important: Make sure that all the candidates have both their modules marks listed here, or else they won’t be accounted.</h5>
+
+          </div>
+          
+          <input type="hidden" name="markShow" value="show" />
+          <div class="cancal-confirm">
+            <button type="submit" style="background-color: rgb(219, 135, 135);" name="annuler" class="annuler">No</button>
+            <button type="submit" name="confirmer" class="confirmer">
+              Yes
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- show-Marks form -->
+      
+    </div>
+    <!-- import js -->
+    <!-- <script src="../../Scripts/CFD_President.js"></script> -->
+    <script defer src="../../Scripts/upload.js"></script>
+    
+  </body>
+</html>

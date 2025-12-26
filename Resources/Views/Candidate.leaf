@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="Styles/Candidate.css" class="rel" />
+
+    <!-- Render All Elements Normaly -->
+    <link rel="stylesheet" href="Styles/normalize.css" class="rel" />
+    <!-- Font Awesome Library -->
+    <script
+      src="https://kit.fontawesome.com/d563012c9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Googl Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- start header -->
+    <div class="header">
+      <div class="menu">
+        <i class="fas fa-solid fa-bars fa-2x"></i>
+      </div>
+      <div class="logo">
+        <i class="fas fa-graduation-cap fa-3x"></i>
+        <h2>ConcourDoc<span>2</span>UC2</h2>
+      </div>
+      <div class="profile">
+        <div class="info">
+          <!-- put  name of user (Candidate) here "backend" -->
+          <p class="first">#(candidate.firstName) #(candidate.lastName)</p>
+          <p class="second">Candidate</p>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+    <div class="main">
+      <!-- start aside bar -->
+      <div class="aside">
+        <ul class="sidebar-items">
+          <li>
+            <div class="profile profile2">
+              <div class="image">
+                <i class="fas fa-user fa-2x"></i>
+              </div>
+              <div class="info">
+                <p class="first">Candidate name</p>
+                <p class="second">Candidate</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="publish-link active-link">
+              <i class="fas fa-bullhorn"></i>
+              <span class="">Posts</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mark-link">
+              <i class="fas fa-clipboard-list"></i>
+              <span class="">Results</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="sidebar-bottom-itmes">
+          <li>
+            <!-- log out  "backend"-->
+            <a href="/logout" class="">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- end aside bar  -->
+      <!-- start main content -->
+      <div class="main-content">
+        <div class="list_users">
+          <div class="title">
+            <h2><span class="list-title">Informations</span></h2>
+          </div>
+          <hr />
+          <!-- start table admin -->
+          <div class="table table-admin">
+            <table>
+              <thead>
+                <tr
+                  style="background-color: #fff; position: sticky; top: 000px"
+                >
+                  <th>Ranking</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Decision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- start loop (to display Marks) "backend"-->
+                #for(result in results):
+                    <tr>
+                      <td>#(result.ranking)</td>
+                      <td>#(result.firstName)</td>
+                      <td>#(result.lastName)</td>
+                      #if(result.accepted):
+                      <td style="display: flex; justify-content: center">
+                          <div class="accepeted">Accepted</div>
+                      </td>
+                      #else:
+                      <td style="display: flex; justify-content: center">
+                          <div class="adjourned">Adjourned</div>
+                      </td>
+                      #endif
+                    </tr>
+                #endfor
+                <!-- end loop (to display Marks) "backend"-->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- start informations -->
+        <div class="infos">
+          <div class="post-container">
+            <!-- start loop (to display Posts) "backend"-->
+            #for(post in posts):
+                <div class="post">
+                  <div class="title">
+                    <h3>#(post.title)</h3>
+                    <span class="date">#(post.date)</span>
+                  </div>
+                  <div class="content">
+                    <p>
+                      #(post.content)
+                    </p>
+                  </div>
+                  <div class="prof">
+                    <h3>#(post.userFullName)</h3>
+                  </div>
+                  <div class="drive-link">
+                    <a href="#(post.link)" target="_blank"
+                      >#(post.link)</a
+                    >
+                  </div>
+                </div>
+            #endfor
+            <!-- end loop (to display Posts) "backend"-->
+          </div>
+        </div>
+        <!-- end informations -->
+      </div>
+      <!-- end main content -->
+    </div>
+
+    <!-- import js -->
+    <script src="Scripts/Candidate.js"></script>
+  </body>
+</html>

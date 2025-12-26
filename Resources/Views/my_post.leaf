@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="../../Styles/Candidate.css" class="rel" />
+
+    <!-- Render All Elements Normaly -->
+    <link rel="stylesheet" href="../../Styles/normalize.css" class="rel" />
+    <!-- Font Awesome Library -->
+    <script
+      src="https://kit.fontawesome.com/d563012c9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Googl Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- start header -->
+    <div class="header">
+      <div class="menu">
+        <i class="fas fa-solid fa-bars fa-2x"></i>
+      </div>
+      <div class="logo">
+        <i class="fas fa-graduation-cap fa-3x"></i>
+        <h2>ConcourDoc<span>2</span>UC2</h2>
+      </div>
+      <div class="profile">
+        <div class="info">
+          <!-- put  name of user (dean) here "backend" -->
+          <p class="first">#(dean.firstName) #(dean.lastName)</p>
+          <p class="second">Dean</p>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+    <div class="main">
+      <!-- start aside bar -->
+      <div class="aside">
+        <ul class="sidebar-items">
+          <li>
+            <div class="profile profile2">
+              <div class="image">
+                <i class="fas fa-user fa-2x"></i>
+              </div>
+
+              <div class="info">
+                <p class="first">Dean name</p>
+                <p class="second">Dean</p>
+              </div>
+            </div>
+          </li>
+          <!-- link go to new_post "backend" -->
+          <li>
+            <a href="/dean/new-post" class="post-link">
+              <i class="fas fa-plus"></i>
+              <span class="">New Post</span>
+            </a>
+          </li>
+          <!-- link go to my_post "backend" -->
+          <li>
+            <a href="/dean" class="post-link active-link">
+              <i class="fas fa-paste"></i>
+              <span class="">My Posts</span>
+            </a>
+          </li>
+          <hr />
+          <!-- link go secret_code "backend" -->
+          <li>
+            <a href="/dean/secret-codes" class="secret-code-link">
+              <i class="fas fa-user-secret"></i>
+              <span class="">Secret Codes</span>
+            </a>
+          </li>
+          <!-- link go generate_code "backend" -->
+          <li>
+            <a href="/dean/assign-code" class="generate-code-link">
+              <i class="fas fa-key"></i>
+              <span class="">Generate Code</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="sidebar-bottom-itmes">
+          <li>
+            <!-- log out  "backend"-->
+            <a href="/logout" class="">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- end aside bar  -->
+      <!-- start main content -->
+      <div class="main-content">
+        <div class="list_users">
+          <div class="title">
+            <h2><span class="list-title">My Posts</span></h2>
+          </div>
+          <hr />
+        </div>
+        <!-- start informations -->
+        <div class="infos">
+          <div class="post-container">
+            <!-- start loop (to display Posts posted by this dean) "backend"-->
+            #for(post in posts):
+                <div class="post">
+                  <!-- put api delete post in action don't forget post id #(post.id)  -->
+                  <form
+                    id="delete-form-#(post.id)"
+                    action="/dean/#(post.id)/delete"
+                    method="POST"
+                    style="display: inline"
+                  >
+                    <input type="hidden" name="_method" value="DELETE" />
+                  </form>
+
+                  <div
+                    class="close"
+                    onclick="event.preventDefault(); document.getElementById('delete-form-#(post.id)').submit();"
+                  >
+                    &times;
+                  </div>
+
+                  <div class="title">
+                    <h3>#(post.title)</h3>
+                    <span class="date">#(post.date)</span>
+                  </div>
+                  <div class="content">
+                    <p>
+                      #(post.content)
+                    </p>
+                  </div>
+                  <!-- put drive link between <a></a> and in href -->
+                  <div class="drive-link">
+                    <a href="#(post.link)" target="_blank"
+                      >#(post.link)</a
+                    >
+                  </div>
+<!--                  <div class="prof">-->
+<!--                    <h3>Pr.Faiza Belala</h3>-->
+<!--                  </div>-->
+                </div>
+            #endfor
+            <!-- end loop (to display Posts posted by this dean) "backend"-->
+          </div>
+        </div>
+        <!-- end informations -->
+      </div>
+      <!-- end main content -->
+    </div>
+
+    <!-- import js -->
+    <script src="../../Scripts/Candidate.js"></script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="../../Styles/CFD_President.css" class="rel" />
+ 
+    <link rel="stylesheet" href="../../Styles/upload.css" class="rel" />
+
+    <!-- Render All Elements Normaly -->
+    <link rel="stylesheet" href="../../Styles/normalize.css" class="rel" />
+    <!-- Font Awesome Library -->
+    <script
+      src="https://kit.fontawesome.com/d563012c9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Googl Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- start header -->
+    <div class="header">
+      <div class="menu">
+        <i class="fas fa-solid fa-bars fa-2x"></i>
+      </div>
+      <div class="logo">
+        <i class="fas fa-graduation-cap fa-3x"></i>
+        <h2>ConcourDoc<span>2</span>UC2</h2>
+      </div>
+      <div class="profile">
+        <div class="info">
+          <p class="first">#(user.firstName) #(user.lastName)</p>
+
+          <p class="second">CFD President</p>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+    <div class="main">
+      <!-- start aside bar -->
+      <div class="aside">
+        <ul class="sidebar-items">
+          <li>
+            <div class="profile profile2">
+              <div class="image">
+                <i class="fas fa-user fa-2x"></i>
+              </div>
+              <div class="info">
+                <p class="first">admin name</p>
+
+                <p class="second">Admin</p>
+              </div>
+            </div>
+          </li>
+          <!-- link go to marks "backend" -->
+          <li>
+            <a href="/cfd-president/copies/marked" class="mark-link ">
+              <i class="fas fa-clipboard-list"></i>
+              <span class="">Marks</span>
+            </a>
+          </li>
+        
+
+          <hr />
+          <!-- link go to affecte teacher "backend" -->
+          <li>
+            <a href="/cfd-president/copies/unmarked" class="affect-teachers-link ">
+              <i class="fas fa-copy"></i>
+              <span class="">Affect Teachers</span>
+            </a>
+          </li>
+          <!-- link go to affecte third_teacher "backend"-->
+          <li>
+            <a href="/cfd-president/copies/third-teacher" class="third-teachers-link active-link">
+              <i class="fas fa-copy"></i>
+              <span class="">Third Teachers</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="sidebar-bottom-itmes">
+          <li>
+            <a href="/logout" class="">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- end aside bar  -->
+      <!-- start main content -->
+      <div class="main-content">
+        <div class="list_users">
+          <div class="title">
+            <h2><span class="list-title">Third Teacher</span></h2>
+          </div>
+          <hr />
+          <!-- start table marks -->
+          
+      </div>
+      <div class="affecte-form">
+        
+  
+        <form action="/cfd-president/copies/third-teacher" method="post" class="">
+          <h3>Select Copies</h3>
+  
+          <div class="table-affect">
+            <table id="select-table">
+              <thead>
+                <tr
+                  style="position: sticky; top: 000px; background-color: #f7f3f3"
+                >
+                  <th></th>
+                  <th>Secret Code</th>
+                  <th>Candidate Name</th>
+                  <th>Module</th>
+                  <th>Mark 1</th>
+                  <th>Mark 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                   <!-- start loop  to display list copies need third teacher  "back end" -->
+                #for(copy in copies):
+                    <tr class="">
+                      <td>
+                        <!-- put id copy in value without "" -->
+                        <input
+                          class="checkbox"
+                          type="checkbox"
+                         
+                          name="copyID"
+                          value="#(copy.id)"
+                          hidden
+                        />
+                        <i class="fas fa-check check-2" style="display: none"></i>
+                      </td>
+      
+                      <td>#(copy.secretCode)</td>
+                      <td>#(copy.fullName)</td>
+                      <td>#(copy.module)</td>
+                      <td>#(copy.mark1)</td>
+                      <td>#(copy.mark2)</td>
+                    </tr>
+                #endfor
+              <!-- end loop to display copies need third teacher "back end" -->
+              
+              </tbody>
+            </table>
+          </div>
+          <h3>Choose Third Teacher</h3>
+          <hr />
+          <div class="chose-teachers">
+           
+            <label for="Teacher3"> Teacher 3 :</label>
+            <select id="Teacher3" name="teacher3ID">
+               <!-- start loop to display teacher put id teacher in value  -->
+            #for(teacher in teachers):
+                <option value="#(teacher.id)">#(teacher.firstName) #(teacher.lastName)</option>
+            #endfor
+            <!-- end loop t0 display teacher --></select
+            ><br /><br />
+  
+            <input type="submit" value="Affect" onclick="affect_third_teacher();"/>
+          </div>
+        </form>
+      </div>
+       <!-- show-Marks form -->
+       <div class="show-Marks">
+        <!-- add api dsplay mark  "back end" -->
+        <form action="#" method="post">
+          <div class="closer">&times;</div>
+          <div class="title-show">
+            <h3>Do you want to publish Marks ?</h3>
+          </div>
+          <input type="hidden" name="markShow" value="show" />
+          <div class="cancal-confirm">
+            <button type="submit" name="annuler" class="annuler">Cancel</button>
+            <button type="submit" name="confirmer" class="confirmer">
+              Confirm
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- show-Marks form -->
+    </div>
+    <!-- import js -->
+    <script src="../../Scripts/CFD_President.js"></script>
+    <script src="../../Scripts/upload.js"></script>
+    
+  </body>
+</html>

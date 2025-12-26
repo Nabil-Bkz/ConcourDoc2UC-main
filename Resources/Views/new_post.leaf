@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="../../Styles/Dean.css" class="rel" />
+
+    <!-- Render All Elements Normaly -->
+    <link rel="stylesheet" href="../../Styles/normalize.css" class="rel" />
+    <!-- Font Awesome Library -->
+    <script
+      src="https://kit.fontawesome.com/d563012c9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Googl Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- start header -->
+    <div class="header">
+      <div class="menu">
+        <i class="fas fa-solid fa-bars fa-2x"></i>
+      </div>
+      <div class="logo">
+        <i class="fas fa-graduation-cap fa-3x"></i>
+        <h2>ConcourDoc<span>2</span>UC2</h2>
+      </div>
+      <div class="profile">
+        <div class="info">
+          <!-- put  name of user here "backend" -->
+          <p class="first">#(dean.firstName) #(dean.lastName)</p>
+          <p class="second">Dean</p>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+    <div class="main">
+      <!-- start aside bar -->
+      <div class="aside">
+        <ul class="sidebar-items">
+          <li>
+            <div class="profile profile2">
+              <div class="image">
+                <i class="fas fa-user fa-2x"></i>
+              </div>
+              <div class="info">
+                <p class="first">Dean name</p>
+                <p class="second">Dean</p>
+              </div>
+            </div>
+          </li>
+         <!-- link go to new_post "backend" -->
+         <li>
+          <a href="/dean/new-post" class="post-link active-link">
+            <i class="fas fa-plus"></i>
+            <span class="">New Post</span>
+          </a>
+        </li>
+        <!-- link go to my_post "backend" -->
+        <li>
+          <a href="/dean/posts" class="post-link ">
+            <i class="fas fa-paste"></i>
+            <span class="">My Post</span>
+          </a>
+        </li>
+        <hr />
+        <!-- link go secret_code "backend" -->
+        <li>
+          <a href="/dean/secret-codes" class="secret-code-link">
+            <i class="fas fa-user-secret"></i>
+            <span class="">Secret Code</span>
+          </a>
+        </li>
+        <!-- link go generate_code "backend" -->
+        <li>
+          <a href="/dean/assign-code" class="generate-code-link ">
+            <i class="fas fa-key"></i>
+            <span class="">Generate Code</span>
+          </a>
+        </li>
+        </ul>
+        <ul class="sidebar-bottom-itmes">
+          <li>
+            <!-- log out  "backend"-->
+            <a href="/logout" class="">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- end aside bar  -->
+      <!-- start main content -->
+      <div class="main-content">
+        <div class="list_users">
+          <div class="title">
+            <h2>Create <span class="list-title">Post</span></h2>
+          </div>
+          <hr />
+          <!-- start  create post  -->
+            <!-- use action and method with ur api "backend" -->
+    
+    <form action="/dean/new-post" method="post" enctype="multipart/form-data">
+        <label for="titre">Title :</label><br>
+        <input type="text" id="titre" name="title"><br><br>
+        <label for="informations">Content :</label><br>
+        <textarea id="informations" name="content" rows="4" cols="50"></textarea><br><br>
+        <label for="pdf">Drive URL :</label>
+        <input type="url" id="pdf" name="link"><br><br>
+        <input type="submit" value="Publish">
+    </form>
+    
+       
+            <!-- end   create post  -->
+      </div>
+      <!-- end main content -->
+    </div>
+
+    <!-- import js -->
+    <script src="../../Scripts/Dean.js"></script>
+  </body>
+</html>

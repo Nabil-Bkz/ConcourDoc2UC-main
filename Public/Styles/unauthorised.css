@@ -1,0 +1,101 @@
+/* start variables */
+:root {
+  --main-color: #10cab7;
+  --secondary-color: #e5e5e5;
+  --main-font-color: #333;
+  --main-backround-color: #fff;
+}
+
+/* end variables */
+/* start components */
+button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  color: var(--main-font-color);
+  font-size: 1.1rem;
+  border-color: #f1f1f1;
+  height: 41px;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+button i {
+  margin-right: 10px;
+}
+button:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+/* end components */
+/* start global Rules */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  background-color: #fff;
+  height: 100vh;
+}
+
+/* end global Rules */
+/* start container */
+.container {
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  transition: 5s;
+  padding: 50px;
+  padding-top: 10px;
+}
+/* end container */
+
+/* start logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 2px;
+  padding-top: 25px;
+}
+.logo i {
+  color: var(--main-color);
+  text-align: center;
+}
+.logo h2 {
+  font-size: 30px;
+  color: var(--main-font-color);
+  letter-spacing: -2px;
+  white-space: nowrap;
+  margin: 15px 10px 10px 10px;
+  text-align: center;
+  font-weight: bold;
+}
+.logo h2 span {
+  color: var(--main-color);
+}
+.fa-3x {
+  font-size: 5em;
+}
+/* end logo */
+/* start message */
+.message {
+  text-align: center;
+}
+.message p {
+  font-weight: 700;
+  font-size: 22px;
+}
+/* end message  */
