@@ -224,13 +224,4 @@ Sources/App/
 4. **Teacher** - Grade submission for assigned papers
 5. **Candidate** - View results and announcements
 
-## 📝 Recent Improvements
-
-- ✅ Flash message system for user feedback
-- ✅ Email notification service
-- ✅ API documentation endpoint
-- ✅ Enhanced error handling
-- ✅ Code refactoring and best practices
-- ✅ Removed unused code
-- ✅ Improved security with additional authentication checks
 
