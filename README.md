@@ -175,7 +175,7 @@ Email notifications are currently logged to the console. To enable actual email 
 2. Uncomment the email sending code
 3. Set environment variables for SMTP configuration
 
-## 📚 API Documentation
+##  API Documentation
 
 Access the API documentation at:
 - **HTML View:** `http://localhost:8080/api/docs`
@@ -183,7 +183,7 @@ Access the API documentation at:
 
 
 
-## 🔐 User Roles
+##  User Roles
 
 1. **Admin** - Full system administration
 2. **CFD President** - Result management and teacher assignment
