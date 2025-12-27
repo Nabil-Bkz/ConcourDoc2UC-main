@@ -6,16 +6,16 @@
 
 The Academic Examination Management System is an innovative web application designed to streamline and enhance the process of conducting doctoral-level examinations within the university. This robust system caters to the needs of candidates, administrative staff, and educators, ensuring a seamless and secure examination experience.
 
-## 🚀 Features
+##  Features
 
-- ✅ **Role-Based Access Control** - Secure authentication with 5 distinct user roles
-- ✅ **Anonymous Grading System** - Secret code generation ensures fair evaluation
-- ✅ **Multi-Teacher Grading** - Supports up to 3 teachers with automatic conflict resolution
-- ✅ **Flash Messages** - User-friendly feedback system for all operations
-- ✅ **Email Notifications** - Automated notifications for key events
-- ✅ **API Documentation** - Comprehensive API documentation endpoint
-- ✅ **Result Publishing** - Automated result calculation and publishing
-- ✅ **Post Management** - Announcement system for deans
+-  **Role-Based Access Control** - Secure authentication with 5 distinct user roles
+-  **Anonymous Grading System** - Secret code generation ensures fair evaluation
+-  **Multi-Teacher Grading** - Supports up to 3 teachers with automatic conflict resolution
+-  **Flash Messages** - User-friendly feedback system for all operations
+-  **Email Notifications** - Automated notifications for key events
+-  **API Documentation** - Comprehensive API documentation endpoint
+-  **Result Publishing** - Automated result calculation and publishing
+-  **Post Management** - Announcement system for deans
 
 ## 🛠 Technologies Used
 
@@ -26,7 +26,7 @@ The Academic Examination Management System is an innovative web application desi
 - **Templating:** Leaf
 - **Authentication:** Session-based with Bcrypt password hashing
 
-## 📋 Functional Requirements
+## Functional Requirements
 
 ### 1. **Candidate Access**
    - Registered candidates can log in to access essential examination information
@@ -65,7 +65,7 @@ The Academic Examination Management System is an innovative web application desi
    - Submit marks through user-friendly interface
    - Flash messages confirm successful submissions
 
-## 🔒 Non-Functional Requirements
+## Non-Functional Requirements
 
 1. **Security Assurance:**
    - Bcrypt password hashing for secure authentication
@@ -111,7 +111,7 @@ The Academic Examination Management System is an innovative web application desi
 4. **Educator:**
    - Evaluates and grades examination papers, ensuring fair assessment.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - macOS 12+ or Linux
@@ -181,40 +181,7 @@ Access the API documentation at:
 - **HTML View:** `http://localhost:8080/api/docs`
 - **JSON Format:** `http://localhost:8080/api/docs/json`
 
-## 🎯 Key Features Implemented
 
-### Flash Messages
-- Success, error, warning, and info message types
-- Automatic display on next page load
-- Integrated throughout all controllers
-
-### Email Notifications
-- Secret code assignment notifications
-- Teacher assignment notifications
-- Results publication notifications
-- Extensible notification system
-
-### User Feedback
-- Flash messages for all CRUD operations
-- Clear error messages for failed operations
-- Success confirmations for completed actions
-
-## 📖 Project Structure
-
-```
-Sources/App/
-├── Controllers/          # Route handlers
-│   ├── AdminController.swift
-│   ├── CandidateController.swift
-│   ├── CFDPresidentController.swift
-│   ├── DeanController.swift
-│   ├── TeacherController.swift
-│   └── APIDocumentationController.swift
-├── Models/              # Database entities
-├── Middleware/          # Authentication, flash messages, notifications
-├── Migrations/          # Database schema migrations
-└── Constants.swift      # Application constants
-```
 
 ## 🔐 User Roles
 
